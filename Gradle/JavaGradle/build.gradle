@@ -38,7 +38,8 @@ task runAppAgain(type: JavaExec) {
     args(project.getProperty('num1'), project.getProperty('num2'));
   } else if (project.hasProperty("num1")){
     args(project.getProperty('num1'), 1);
-  }
+  } else {
+  args(1 , 2);
 }
 
 // task that runs the Fraction Main which does not use arguments: gradle runFraction
@@ -55,6 +56,21 @@ task runFraction(type: JavaExec) {
 // 1. Change Fraction.main so it accepts 2 arguments
 // 2. Create a new gradle tasks that accepts two arguments and 
 //    can be called as: gradle runFrac -Pdenom=4 -Pnum=3 or as gradle runFrac -Pnum=3 -Pdenom=4 
+
+// task that runs the Fraction Main which does not use arguments: gradle runFraction
+task runFrac(type: JavaExec) {
+  group 'Fraction Tasks'
+  description 'Tasks which runs Fraction with no arguments'
+
+  classpath = sourceSets.main.runtimeClasspath
+
+  main = 'Fraction'
+  
+  if (project.hasProperty("Pdenom") && project.hasProperty("num")) {
+    args(project.getProperty('num'), project.getProperty('Pdenom'));
+  } else {
+  args(1,1);
+}
 
 // Example how you can add that libraries can be pulled from mavenCentral()
 // repositories {
