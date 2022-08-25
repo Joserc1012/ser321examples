@@ -55,7 +55,7 @@ task runFraction(type: JavaExec) {
 // Try:
 // 1. Change Fraction.main so it accepts 2 arguments
 // 2. Create a new gradle tasks that accepts two arguments and 
-//    can be called as: gradle runFrac -Pdenom=4 -Pnum=3 or as gradle runFrac -Pnum=3 -Pdenom=4 
+//    can be called as: gradle runFrac -Pdenom=4 -Pnum=3 or as gradle runFrac -Pnum=3 -Pdenom=4 , also make sure it can run with only 1 or no arguments
 
 // task that runs the Fraction Main which does not use arguments: gradle runFraction
 task runFrac(type: JavaExec) {
@@ -79,5 +79,5 @@ task runFrac(type: JavaExec) {
 
 // Setting dependencies, e.g. when you import JSON in your Java files
 // dependencies{
-//   compile 'org.json:json:20171018'
+//   implementation 'org.json:json:20171018'
 // }
